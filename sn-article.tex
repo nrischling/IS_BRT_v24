@@ -23,6 +23,7 @@
 \usepackage{adjustbox}
 \usepackage{csquotes}
 \usepackage{listings}
+\usepackage{wrapfig}
 \lstdefinelanguage{NetLogo}{
   keywords={to, to-report, end, let, if, else, ifelse, report, foreach, while, loop},
   comment=[l]{;},
@@ -40,7 +41,7 @@
   breakatwhitespace=true,
   tabsize=3,
 }
-
+\newcommand{\sbt}{\,\begin{picture}(-1,1)(-1,-3)\circle*{3}\end{picture}\ }
 
 
 
@@ -105,7 +106,7 @@
 %% sample for unstructured abstract %%
 %%==================================%%
 
-\abstract{In complex organizational settings, achieving a harmonious balance between collaboration, competition, and conservation becomes paramount. This research introduces the Biomimetic Resource Theory (BRT) as a framework to elucidate the challenges and opportunities inherent in striking this balance, especially in the realm of knowledge sharing. By emphasizing an organization's capabilities and advocating a shift from function to intent, the BRT offers insights into sustainable growth and long-term viability in organizational knowledge management. Drawing parallels between natural systems and organizational ecosystems, the BRT provides a roadmap for understanding the dynamics of knowledge flow within the contexts of collaboration, competition, and shifting equilibriums. The ultimate aim is to refine knowledge management practices, fostering adaptability and sustainability within these three intertwined dimensions.}
+\abstract{In complex organizational settings, achieving a harmonious balance between collaboration, competition, and conservation becomes paramount. This research introduces the Biomimetic Resource Theory (BRT) as a framework to elucidate the challenges and opportunities inherent in striking this balance, especially in the realm of knowledge sharing. The BRT emphasizes an organization’s capabilities and advocates a shift from function to intent, fostering a bidirectional relationship where insights drive data discovery just as powerfully as data yields insights. Drawing parallels between natural systems and organizational ecosystems, the BRT offers a comprehensive perspective on sustainable growth and long-term viability in organizational knowledge management. By understanding the dynamics of knowledge flow within the contexts of collaboration, competition, and shifting equilibriums, we can refine knowledge management practices, promoting adaptability and sustainability within these three intertwined dimensions.}
 
 \keywords{Knowledge Management, Category Theory, Constructor Theory, Systems Ecology, Fractal Geometry, Nature-inspired Optimization, Digital Twins, System Resilience, Dynamic Equilibrium}
 
@@ -113,7 +114,7 @@
 \pagestyle{fancy}
 \fancyhf{} % clear existing header/footer entries
 % We don't need to specify the O coordinate
-\fancyhead[R]{Rischling BRT Draft v24}
+\fancyhead[R]{Rischling BRT Draft v25}
 \pagenumbering{arabic}
 \fancyfoot[R]{\thepage}
 %%================================%%
@@ -141,36 +142,36 @@
 
 \section{Introduction}\label{sec1}
 
-In the ever-evolving landscape of organizational dynamics, the dance of collaboration, competition, and conservation emerges as a focal point of intrigue and challenge. These elements, though seemingly disparate, are interconnected threads that weave the tapestry of an organization's success or failure. Knowledge sharing, a critical component of this tapestry, acts as the linchpin, bridging gaps and fostering connections within and between these elements.
+In an era marked by rapid technological advancements and heightened complexities in organizational structures, the quest for optimizing knowledge management has gained unprecedented urgency. Traditionally, the disciplines of biology, mathematics, and organizational behavior have operated in isolated silos. However, this research aims to bridge these diverse fields, offering an integrated lens through which to view and solve problems in contemporary knowledge management. In doing so, it caters to a transdisciplinary audience, transcending the boundaries of any single academic field.
 
-Yet, as any complex system reveals, these connections are seldom linear or straightforward. Organizations, particularly those of significant complexity, find themselves at the nexus of multiple forces. On one hand, there's the imperative to collaborate, to share insights and knowledge, to build upon collective wisdom. On the other, competition looms large, be it for resources, market share, or innovation dominance. And underpinning all this is the need for conservation, ensuring that in the race for growth and dominance, sustainability isn't compromised.
+The reader will embark on a journey that commences with the principles governing natural ecosystems, as derived from biomimetic studies. From there, the exploration will delve into mathematical theories capable of formalizing these principles into actionable insights. The culmination of this journey lies in applying these synthesized principles to the realm of organizational behavior and knowledge management. In essence, the voyage undertaken in this paper is from the natural world to mathematical abstraction, and finally, to practical organizational applications.
 
-Enter the Biomimetic Resource Theory (BRT). Rooted in the principles of biomimicry, the BRT seeks inspiration from nature. Just as mycorrhizal networks in forests showcase a symbiotic exchange of nutrients, organizations too have underlying networks of knowledge exchange. But how do these networks operate in the face of competition? And how can they be conserved and nurtured for long-term viability?
+\subsection{Scope of the Paper}\label{sec1.1}
 
-While the BRT finds its grounding in ecological principles, it also embraces the mathematical rigor of category theory, providing a structured framework to understand the relationships and interactions within organizational ecosystems. This melding of ecological understanding with mathematical precision offers a unique lens—one that's both holistic and granular.
+The following sections are designed to guide the reader through this intricate web of interrelated disciplines. Section~\ref{sec3} provides a comprehensive literature review that lays the groundwork for the Biomimetic Replicant Theory (BRT). Section~\ref{sec4} introduces the theoretical underpinnings of BRT, followed by Section~\ref{sec5} which elucidates the methodology employed for empirical validation. Section~\ref{sec6} presents the results and discussions, and Section~\ref{sec9} offers practical recommendations based on the findings. Finally, Section~\ref{sec10} outlines avenues for future work and potential interdisciplinary collaborations.
 
-For a transdisciplinary audience, this research promises a journey across disciplines. From the verdant forests and their intricate mycorrhizal networks to the abstract realms of mathematical theories, and into the heart of organizational dynamics, the BRT serves as a compass. It aims to guide readers through the challenges and opportunities of knowledge management, emphasizing the harmonious balance between collaboration, competition, and conservation.
+This paper aims not merely to introduce a new framework but to catalyze a paradigm shift in how knowledge management is perceived and practiced, influenced by insights from nature and formalized through mathematical rigor.
 
-As we delve deeper into this exploration, the foundational principles of the BRT will unfold, offering insights that are both broad in their implications and specific in their applications. This paper, in essence, is an invitation to view organizational knowledge management through a fresh, interdisciplinary lens.
+
 
 \section{Background}\label{sec2}
 
 In the intricate world of organizational dynamics, three elements emerge as paramount in shaping outcomes: collaboration, competition, and conservation. Each of these elements, while distinct, intertwines in ways that influence the trajectory of organizations, especially in the realm of knowledge sharing.
 
-Collaboration is the bedrock of innovation. It is through the collaborative efforts of individuals, teams, and even organizations that new ideas germinate, mature, and come to fruition. The sharing of knowledge, insights, and expertise fuels the collaborative engine, enabling entities to build upon collective wisdom and push the boundaries of what's possible. Yet, as essential as collaboration is, it is not without its challenges. The very act of sharing knowledge can expose vulnerabilities, create dependencies, and sometimes blur the lines of ownership and credit.
+Collaboration is the bedrock of innovation\cite{faems_interorganizational_2005}\cite{gonzalez_impact_2003}\cite{ndibu_muntu_keba_kebe_variables_2019}. It is through the collaborative efforts of individuals, teams, and even organizations that new ideas germinate, mature, and come to fruition. The sharing of knowledge, insights, and expertise fuels the collaborative engine, enabling entities to build upon collective wisdom and push the boundaries of what's possible. Yet, as essential as collaboration is, it is not without its challenges. The very act of sharing knowledge can expose vulnerabilities, create dependencies, and sometimes blur the lines of ownership and credit.
 
-Competition, while often perceived as the antithesis of collaboration, plays a vital role in driving excellence. In the quest for resources, market share, or dominance in innovation, competition spurs organizations to optimize, innovate, and adapt. However, it is a double-edged sword. While competition can lead to breakthroughs and advancements, it can also foster secrecy, territorial behaviors, and a reluctance to share knowledge, especially if that knowledge is deemed a competitive advantage.
+Competition, while often perceived as the antithesis of collaboration, plays a vital role in driving excellence. In the quest for resources, market share, or dominance in innovation, competition spurs organizations to optimize, innovate, and adapt. However, it is a double-edged sword. While competition can lead to breakthroughs and advancements, it can also foster secrecy, territorial behaviors, and a reluctance to share knowledge, especially if that knowledge is deemed a competitive advantage\cite{dimitriades_creating_2005}.
 
 Underpinning both collaboration and competition is the principle of conservation. In biological ecosystems, conservation ensures the sustainability and balance of resources, species, and interactions. Similarly, in organizational settings, conservation pertains to the mindful management of knowledge, resources, and relationships. It's about ensuring that in the pursuit of growth, innovation, and dominance, the foundational elements that sustain an organization are not compromised.
 
-This triad of collaboration, competition, and conservation is not static. It exists in a state of dynamic equilibrium, constantly influenced by internal and external factors. Traditional models of organizational management often struggle to capture this dynamic interplay, leading to gaps in understanding and suboptimal strategies.
+This triad of collaboration, competition, and conservation is not static. It exists in a state of dynamic equilibrium, constantly influenced by internal and external factors\cite{nash_equilibrium_1950}. Traditional models of organizational management often struggle to capture this dynamic interplay, leading to gaps in understanding and sub-optimal strategies\cite{nash_non-cooperative_1951}.
 
-Enter the realm of biomimicry. Nature, with billions of years of evolutionary trial and error, offers a treasure trove of insights and solutions. From the symbiotic relationships in mycorrhizal networks to the intricate balance of predator-prey dynamics, nature showcases strategies that can inspire organizational approaches. The Biomimetic Resource Theory (BRT) draws from these natural paradigms, offering a framework that melds ecological wisdom with organizational needs.
+Enter the realm of biomimicry. Nature, with billions of years of evolutionary trial and error, offers a treasure trove of insights and solutions\cite{benyus_biomimicry_2009}. From the symbiotic relationships in mycorrhizal networks to the intricate balance of predator-prey dynamics, nature showcases strategies that can inspire organizational approaches\cite{fricker_mycelium_2017}\cite{horton_mycorrhizal_2015}\cite{guichard_meta-ecosystem_2021}. The Biomimetic Resource Theory (BRT) draws from these natural paradigms, offering a framework that melds ecological wisdom with organizational needs\cite{ujwary-gil_organizational_2020}.
 
-Furthermore, to structure and understand the complex relationships within and between these elements, mathematical frameworks such as category theory come into play. Rooted in abstract algebra, category theory provides tools to dissect, analyze, and model intricate systems, making it a fitting companion to the ecological inspirations of the BRT.
+Furthermore, to structure and understand the complex relationships within and between these elements, mathematical frameworks such as category theory come into play. Rooted in abstract algebra, category theory provides tools to dissect, analyze, and model intricate systems, making it a fitting companion to the ecological inspirations of the BRT\cite{spivak_category_2014}\cite{fong_invitation_2019}.
 
 In summary, the backdrop against which the BRT operates is one of complexity, dynamism, and interdependence. By understanding the foundational dynamics of collaboration, competition, and conservation, and by drawing insights from nature and mathematical theory, the stage is set to delve deeper into the intricacies of the BRT and its implications for knowledge management in organizational settings.
-\section{Literature Review}
+\section{Literature Review}\label{sec3}
 \subsection{Gödel's Incompleteness Theorems and Their Implications for Systems Theory (Zalta et al., 2020)\cite{zalta_gos_2020}}
 \paragraph{Summary}
 Kurt Gödel's incompleteness theorems, first published in 1931, have had a profound impact on the field of logic, mathematics, and even philosophy. The theorems essentially argue that for any consistent formal system capable of performing a certain level of arithmetic, there will be statements that are neither provable nor disprovable within the system. This revelation has had a ripple effect, challenging traditional notions of completeness, consistency, and even the limits of human knowledge.
@@ -248,7 +249,7 @@ A distinguishing aspect of the research is the rigorous methodology employed. Th
 The paper also delves into the implications of this theoretical framework, particularly in the context of quantum mechanics. The authors provide insights into the challenges posed by quantum phenomena and offer potential solutions grounded in the constructor theory of information.
 
 In conclusion, "Constructor Theory of Information" by Deutsch and Marletto presents a paradigm shift in the understanding of information within the realm of physics. By integrating constructor theory with the dynamics of information, the authors pave the way for a deeper understanding of the universe's fundamental principles. Their work is a notable addition to the academic literature, offering fresh perspectives and stimulating further research in the field.
-\subsection{Organizational Development and Change Theory: Managing Fractal Organizing Processes (Henderson \& Boje, 2016)\cite{henderson_organizational_2015}}
+\subsection{Organizational Development and Change Theory: Managing Fractal Organizing Processes (Henderson \& Boje, 2016)\cite{henderson_organizational_2016}}
 
 In "Organizational Development and Change Theory: Managing Fractal Organizing Processes", Henderson and Boje delve deeply into the intricate dynamics of organizational development and the inherent challenges of change management. This seminal work serves as an exploration into the multifaceted nature of organizations, emphasizing the concept of fractal organizing processes.
 
@@ -320,48 +321,60 @@ Citing synthesis of available literature, the authors propose CMNs have been a p
 
 Tedersoo et al., (2020) conclude the positive impacts of CMNs on plant communities are evidenced by distinct methods of nutrition observed in certain species residing where nutrient availability is scarce or in areas of extreme environmental conditions. Lastly, the authors propose that species-specific relationships and interactions are worthy of future exploration within the context of resultant diversity, promoting further diversity\cite{tedersoo_how_2020}.
 
+\subsection{Community Assembly and the Functioning of Ecosystems: How Metacommunity Processes Alter Ecosystems Attributes (Leibold et al., 2017)\cite{leibold_community_2017}}
+
+The interplay between community assembly and the functioning of ecosystems is a topic that has long fascinated ecologists. The intricate dynamics that govern the assembly of species and their subsequent interactions influence not only the composition of communities but also the broader functionality of ecosystems. Leibold et al. delve into this intricate relationship, shedding light on the overarching principles and nuances that govern these dynamics.
+
+The cornerstone of Leibold and colleagues' work is the concept of metacommunity processes. By examining communities not as isolated entities but as interconnected elements of larger metacommunities, the authors provide a fresh perspective on the drivers of community assembly and its consequent impacts on ecosystem functioning.
+
+One of the standout features of this research is the rigorous exploration of the various pathways through which metacommunity dynamics influence ecosystem attributes. By mapping these pathways, Leibold et al. offer a structured framework that encompasses both direct and indirect influences, adding depth and granularity to our understanding.
+
+The implications of metacommunity processes on ecosystem functioning are manifold. Leibold and colleagues highlight how species sorting, mass effects, and patch dynamics influence nutrient cycling, productivity, and stability. These insights underscore the intertwined nature of community composition and ecosystem processes, emphasizing the need for holistic approaches in ecological research.
+
+Moreover, the paper astutely recognizes the role of spatial dynamics in shaping metacommunity processes. By integrating spatial factors into their analyses, the authors showcase the importance of considering both spatial and temporal scales in understanding the assembly-function relationship.
+
+In conclusion, "Community Assembly and the Functioning of Ecosystems: How Metacommunity Processes Alter Ecosystems Attributes" stands as a pivotal contribution to the field of ecology. By intertwining the concepts of community assembly, metacommunity dynamics, and ecosystem functionality, Leibold et al. present a comprehensive exploration that enriches our understanding and offers avenues for future research in the realm of community ecology.
+
 \subsection{Variables associated with interprofessional collaboration: The case of professionals working in Quebec local mental health service networks (Ndibu Muntu Keba Kebe et al., 2019)\cite{ndibu_muntu_keba_kebe_variables_2019}}
 Ndibu Muntu Keba Kebe et al. performed a secondary analysis on multiple variables to study their relationship with interprofessional collaboration (IPC). Between the four variables selected (individual characteristics, interactional characteristics, organizational features, and professional role characteristics), the authors hypothesized that interactional characteristics and organizational features would have the most relevant relationships with IPC. Sub-traits of interactional characteristics—Team climate, knowledge sharing, knowledge integration, and multifocal identification—emerged as having significant associations with IPC\cite{ndibu_muntu_keba_kebe_variables_2019}.
-
-IPC has gained traction in chronic and mental healthcare settings to improve patient management, with the benefits of improved patient health status and care satisfaction being reported. However, organizational adoption and implementation are still lacking. Within the overarching blocks of variables, individual variables were defined using various instruments, as seen in Table \ref{table:3}. \\
+IPC has gained traction in chronic and mental healthcare settings to improve patient management, with the benefits of improved patient health status and care satisfaction being reported. However, organizational adoption and implementation are still lacking. Within the overarching blocks of variables, individual variables were defined using various instruments, as seen in Table \ref{table:3}.
 
 \begin{table}[h!]
-%\noindent\makebox[\paperwidth][c]
-\begin{adjustbox}{center}\begin{tabularx}{0.8\paperwidth}{ p{4cm} >{\RaggedLeft\arraybackslash}p{.15cm} >{\RaggedRight\arraybackslash}p{3.8cm} X} \\
+\begin{adjustbox}{center}
+\begin{tabularx}{0.9\paperwidth}{p{4.5cm} >{\RaggedLeft\arraybackslash}p{.15cm} >{\RaggedRight\arraybackslash}p{3.2cm} X}
 \hline
-\textbf{Blocks of variables} & { } & \textbf{Variables} & \textbf{Instruments} \\
+\textbf{Blocks of variables} & & \textbf{Variables} & \textbf{Instruments} \\
 \hline
-\\ \multirow{1}{*}{\textbf{Independent variables (IV):}} & & & \\
-\multirow{4}{8em}{Individual Characteristics} \\
- & 1 & Age & Research team socio-demographic questionnaire. \\
- & 2 & Sex & Research team socio-demographic questionnaire. \\
- & 3 & Belief in the benefits of interdisciplinary collaboration & Five-item scale; Cronbach $\alpha$: 0.92; Range: 5–35 (Sicotte, D’Amour \& Moreault., 2002). \\
- & 4 & Seniority on the team & Research team socio-demographic questionnaire. \\
-\multirow{8}{8em}{Interactional Characteristics} \\
- & 5 & Knowledge sharing & Five-item scale; $\alpha$: 0.93; Range: 5–35 (Bock, Zmud, Kim, \& Lee, 2005). \\
- & 6 & Knowledge integration & Nine-item scale; $\alpha$: 0.95; Range: 9–63 (Song \& Xies, 2000). \\
- & 7 & Affective commitment toward the team & Four-item scale; $\alpha$: 0.86–0.92; Range: 4–28 (Allen \& Meyer, 1990). \\
- & 8 & Participation in decision-making & Three-item scale; $\alpha$: 0.88; Range: 3–21 (Campion, Medsker, \& Higgs, 1993). \\
- & 9 & Mutual trust & Four-item scale; $\alpha$: 0.90; Range: 4–28 (Simons \& Peterson, 2000). \\
- & 10 & Team climate & Nineteen-item scale; $\alpha$: 0.60–0.84; Range: 19–133 (Anderson \& West, 1998). \\
- & 11 & Team conflict & Nine-item scale; $\alpha$: 0.93–0.94; Range: 9–63 (Jehn \& Mannix, 2001). \\
- & 12 & Team autonomy & Three-item scale; $\alpha$: 0.76; Range: 3–21 (Campion,Medsker \& Higgs, 1993). \\
-\multirow{2}{8em}{Organizational Features} \\
- & 13 & Organizational support & Four-item scale; $\alpha$: 0.84–0.85; Range: 4–28 (Spreitzer, 1996). \\
- & 14 & Team size & Research team socio-demographic questionnaire. \\
-\multirow{2}{8em}{Professional Role Characteristics} \\
- & 15 & Type of profession & Research team socio-demographic questionnaire. \\
- & 16 & Multifocal identification & Twelve-item scale; Cronbach alpha ($\alpha$): 0.65; Range: 12–84 (Van Dick et al., 2004). \\
-\multirow{1}{*}{\textbf{Dependent variable (DV):}} &  & Interprofessional collaboration (IPC) & Fourteen-item scale in four sub-dimensions: communication (5 items); synchronization (3 items), explicit coordination (3 items); implicit coordination (3 items); $\alpha$: 0.77-0.91; Range: 14–98 (Chiocchio, Grenier, O’Neil, Savaria \& Willms, 2012). \\
+\multirow{4}{*}{\textbf{IV: Individual Characteristics}} & 1 & Age & Socio-demographic questionnaire. \\
+& 2 & Sex & Socio-demographic questionnaire. \\
+& 3 & Belief in interdisciplinary benefits & Five-item[\sbt] scale; $\alpha$: 0.92; Range: 5–35 (Sicotte, D’Amour \& Moreault., 2002). \\
+& 4 & Team Seniority & Socio-demographic questionnaire. \\
+\multirow{8}{*}{\textbf{IV: Interactional Characteristics}} & 5 & Knowledge sharing & Five-item[\sbt] scale; $\alpha$: 0.93; Range: 5–35 (Bock, Zmud, Kim, \& Lee, 2005). \\
+& 6 & Knowledge integration & Nine-item[\sbt] scale; $\alpha$: 0.95; Range: 9–63 (Song \& Xies, 2000). \\
+& 7 & Team commitment & Four-item[\sbt] scale; $\alpha$: 0.86–0.92; Range: 4–28 (Allen \& Meyer, 1990). \\
+& 8 & Decision-making participation & Three-item[\sbt] scale; $\alpha$: 0.88; Range: 3–21 (Campion, Medsker, \& Higgs, 1993). \\
+& 9 & Mutual trust & Four-item[\sbt] scale; $\alpha$: 0.90; Range: 4–28 (Simons \& Peterson, 2000). \\
+& 10 & Team climate & Nineteen-item[\sbt] scale; $\alpha$: 0.60–0.84; Range: 19–133 (Anderson \& West, 1998). \\
+& 11 & Team conflict & Nine-item[\sbt] scale; $\alpha$: 0.93–0.94; Range: 9–63 (Jehn \& Mannix, 2001). \\
+& 12 & Team autonomy & Three-item[\sbt] scale; $\alpha$: 0.76; Range: 3–21 (Campion, Medsker \& Higgs, 1993). \\
+\multirow{2}{*}{\textbf{IV: Organizational Features}} & 13 & Organizational support & Four-item[\sbt] scale; $\alpha$: 0.84–0.85; Range: 4–28 (Spreitzer, 1996). \\
+& 14 & Team size & Socio-demographic questionnaire. \\
+\multirow{2}{*}{\textbf{IV: Role Characteristics}} & 15 & Profession type & Socio-demographic questionnaire. \\
+& 16 & Multifocal identification & Twelve-item[\sbt] scale; $\alpha$: 0.65; Range: 12–84 (Van Dick et al., 2004). \\
+\multirow{1}{*}{\textbf{DV}} & & IPC & Fourteen-item[\sbt] scale: communication (5 items); synchronization (3 items), explicit coordination (3 items); implicit coordination (3 items); $\alpha$: 0.77-0.91; Range: 14–98 (Chiocchio, Grenier, O’Neil, Savaria \& Willms, 2012). \\
 \hline
-\end{tabularx}\end{adjustbox}
-\caption{Variables and Instruments\cite{ndibu_muntu_keba_kebe_variables_2019}}
+\end{tabularx}
+\end{adjustbox}
+\caption{Variables and Instruments}
 \label{table:3}
 \end{table}
 
+
+
+
 In alignment with their hypothesis, the interactional characteristics and organizational features blocks had the strongest link to interprofessional collaboration\cite{ndibu_muntu_keba_kebe_variables_2019}. Finally, Ndibu Muntu Keba Kebe et al. used their results to recommend the following actions for increasing IPC: maintain awareness of potential team degradation, encourage mentorship between new and tenured employees, and leverage activities or training programs that bring awareness to the core skills of interprofessional collaboration \cite{ndibu_muntu_keba_kebe_variables_2019}.
 
-\subsection{Meta-ecosystem dynamics: understanding ecosystems through the transformation and movement of matter (Guichard \& Marleau, 2021)\cite{guichard_meta-ecosystem_2021}:}
+\subsection{Meta-ecosystem dynamics: understanding ecosystems through the transformation and movement of matter (Guichard \& Marleau, 2021)\cite{guichard_meta-ecosystem_2021}}
 
 Diverging from traditional theories of ecosystems and metapopulations, \citet{guichard_meta-ecosystem_2021} put forth meta-ecosystem dynamics as a new model to integrate peripheral areas of research whose interactions were previously treated as incidental with little attention paid to the impacts\cite{guichard_meta-ecosystem_2021}. Expanding on metapopulation and metacommunities theories, the claim is made that feedbacks link biodiversity and ecosystem functions rather than a consequence of degradation. Furthermore, the authors posit interactions between inorganic and organic matter flows contribute to “population growth and species assembly,”\citep[p. v]{guichard_meta-ecosystem_2021} which comprise central components of meta-ecosystem dynamics page.
 The theory pursues a multidisciplinary compilation of insights from nonlinear dynamics, applied mathematics, ecology, and non-equilibrium dynamics.
@@ -373,25 +386,81 @@ Expanding on the Rosenzweig-MacArthur model to include the recycling of matter i
 Guichard \& Marleau (2021) conclude that concepts introduced by meta-ecosystem dynamics support the “development of a general and inclusive body of theory”\citep[p. 86]{guichard_meta-ecosystem_2021}. Lastly, future research must guide current literature and theoretical ecology principles toward intersectionality.
 
 
-\subsection*{\textit{Placeholder for Reviews of Remaining Literature}}
-\section{Methodology}\label{sec3}
+\section{Methodology}\label{sec4}
 
 The core of this research is underpinned by a rigorous, quantitative methodology that seamlessly marries theoretical constructs with mathematical expressions. This meticulous approach ensures a robust validation of the Biomimetic Replicant Theory (BRT).
+\subsection{Research Design}
+This study is grounded in the Biomimetic Replicant Theory (BRT), which seeks to understand the intricacies of knowledge flow, competition, and collaboration in organizational ecosystems by drawing parallels with natural systems. Our research framework amalgamates elements of game theory, systems theory, category theory, and biomimicry, serving as a multidisciplinary bridge to explore the dynamics of knowledge management.
+
+\paragraph{Mixed Method Approach} A combined case study and exploratory approach was employed to delve deep into transdisciplinary topics and fields\cite{plano_clark_mixed_2016}.
+
+\paragraph{Secondary Data Analysis} Quantitative data from from cited references were analyzed to draw correlations between natural and human behavioral models and networks\cite{john_sage_2012}. This analysis aimed to uncover similarities between systems, offering insights to enhance organizational knowledge management efforts in support of collaboration, competition, and conservation.
+\paragraph{Visualization and Presentation}
+Various visualizations, including scatter plots and line graphs, were developed to represent the relationships between variables. These visualizations aided in interpreting the data and drawing concrete conclusions about the dynamics of competition, collaboration, and resource consumption.
+
+\subsection{Data Collection}
+\subsubsection{Primary Data}
+\paragraph{The GFG Fractal Model}
+A novel computational model run in NetLogo\cite{wilensky_netlogo_1999-1}, referred to as the "GFG Fractal" model, was developed to simulate the interactions of entities (represented as turtles) in an environment competing for resources. This model captured key variables such as the number of initial players, maximum resource availability, and initial strategies. The model was iteratively run, producing datasets that reflect the evolution of strategies and resource consumption.
+
+\paragraph{\enquote{WILDFIRE} Network Diffusion Simulation} This simulation, also based on the NetLogo platform\cite{wilensky_netlogo_1997}, provided data on how ideas diffused across the organizational network under varying conditions. Key parameters manipulated in this simulation include \( M_{ij} \), \( \beta_i \), \( t_{jj'} \), and \( \theta \).
+
 
 \subsection{Theoretical Framework}
 
-\paragraph{Biomimicry Principles} Derived from nature, quantitative patterns and behaviors observed in ecological interactions were extracted to lay the foundational blueprint for the BRT.
+\paragraph{Biomimicry Principles} Derived from nature, quantitative patterns and behaviors observed in ecological interactions were extracted to lay the foundational blueprint for the BRT\cite{guichard_meta-ecosystem_2021}.
 
-\paragraph{Category Theory} Serving as a backbone for a structured and quantitative framework, category theory's mathematical depth was harnessed. This approach formalized complex relationships within organizational ecosystems, ensuring a rigorous, quantitative lens for the study.
+\paragraph{Category Theory} Serving as a backbone for a structured and quantitative framework, category theory's abstract mathematical depth was harnessed. Used as a foundational tool for drawing parallels between datasets, this approach formalized complex relationships within organizational ecosystems, ensuring a rigorous, quantitative lens for the study. Furthermore, commutative diagrams (Figure \ref{fig:extended_commutative_diagram}) were constructed to showcase the interrelationships and mappings between variables from different datasets, providing a rigorous mathematical basis for comparative analysis\cite{spivak_category_2014}\cite{fong_invitation_2019}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzcd}[row sep=5.5cm, column sep=6cm]
+\text{GFG Variables} 
+    \arrow[r, "F", "\begin{array}{c}
+                     \text{initial-players} \mapsto \text{Colonization} \\
+                     \text{max-resource} \mapsto \text{Nutrient Level} \\
+                     \text{initial-strategy} \mapsto \text{Toxicity}
+                     \end{array}" description]
+    \arrow[d, "G" swap, "\begin{array}{c}
+                        \text{mean(strategy)} = f(\text{initial-players, max-resource}) \\
+                        \text{mean(payoff)} = g(\text{initial-strategy, max-resource})
+                        \end{array}" description]
+    \arrow[rd, "N", dashed, "\text{Bootstrapping}" pos=0.2]
+& \text{Fungi Variables} 
+    \arrow[d, "H", "\begin{array}{c}
+                   \text{Colonization} = h(\text{Toxicity, Nutrient Level}) \\
+                   \text{Resource Allocation} = k(\text{Colonization, Nutrient Level})
+                   \end{array}" description]
+    \arrow[ld, "M", dashed, "\text{Transformation}" pos=0.2]
+\\
+\text{GFG Measures}
+    \arrow[r, "I", "\begin{array}{c}
+                    \text{mean(strategy)} \mapsto \text{Toxicity} \\
+                    \text{mean(payoff)} \mapsto \text{Resource Allocation}
+                    \end{array}" description] 
+& \text{Fungi Measures}
+\end{tikzcd}
+\begin{align*}
+\boxed{
+\begin{aligned}
+\textbf{Key:} \\
+F & : \text{Functor mapping GFG Variables to Fungi Variables} \\
+G & : \text{Mathematical expressions in GFG} \\
+H & : \text{Mathematical expressions in Fungi study} \\
+I & : \text{Functor mapping GFG Measures to Fungi Measures} \\
+N & : \text{Natural transformation representing Bootstrapping in GFG} \\
+M & : \text{Natural transformation representing Transformation in Fungi} \\
+\end{aligned}
+}
+\end{align*}
+\caption{Extended Commutative Diagram for Methodological Integration: A Category-Theoretic Approach.}
+\label{fig:extended_commutative_diagram}
+\end{figure}
 
 \subsubsection{Development of the Biomimetic Replicant Theory (BRT)}
 
 Inspired by the quantitative patterns from nature and the analytical tools of category theory, the BRT was formulated using precise mathematical constructs. This structure encapsulated the intricate dynamics of knowledge within organizations.
-\subsubsection{Research Approach and Data Sources}
 
-\paragraph{Mixed Method Approach} A combined case study and exploratory approach was employed to delve deep into the proposed topic.
-
-\paragraph{Secondary Data Analysis} Quantitative data from sources like the Interuniversity Consortium for Political and Social Research, the Global Biodiversity Information Facility, and additional curated data from cited references were analyzed to draw correlations between knowledge management models and mycorrhizal networks. This analysis aimed to uncover similarities in behavior between these two systems, offering insights to enhance organizational knowledge management.
 
 \subsubsection{Models, Simulations, and Data Analysis}
 
@@ -401,12 +470,22 @@ Inspired by the quantitative patterns from nature and the analytical tools of ca
 
 \paragraph{Data Analysis with SPSS} Data analysis was conducted using IBM’s SPSS software. Following data cleaning and preparation, a comprehensive analysis was performed, ranging from descriptive statistics to inferential statistics. SPSS Modeler, with its user-friendly interface and robust capabilities, was utilized for predictive modeling, data preprocessing, and extracting insights from unstructured data sources.
 
+\paragraph{Comparative Analysis}
+The GFG Fractal data and human cooperation data were juxtaposed to identify parallels in strategy dynamics and resource allocation. Special attention was paid to understanding how both humans and entities in the model respond to shifting conditions and achieve equilibrium in strategy and payoff.
+
+\paragraph{Bootstrapped Regression Trees (BRT) Framework}
+A Bootstrapped Regression Trees framework was employed to analyze the GFG Fractal data. This technique allowed for a nuanced understanding of how initial conditions influence mean strategy and payoff values. The BRT framework effectively handled non-linearity and interactions between predictors, ensuring robust and interpretable results.
+
+
+
+
+
 \subsubsection{Iterative Refinement}
 
-Results from simulations were rigorously analyzed. Any discrepancies between the BRT's mathematical predictions and the simulation outcomes led to iterative refinements, ensuring the BRT's theoretical robustness and practical relevance.
+Results from simulations were rigorously analyzed. Any discrepancies between the BRT's mathematical predictions and the simulation outcomes led to iterative refinements, ensuring the BRT's theoretical robustness and practical relevance. Models and primary datasets are avaialble at nrischling.github.io
 \subsection{The Biomimetic Replicant Theory: An Overview}
 \subsubsection{Definition and Principles}
-BRT posits that the most efficient and optimized human-made systems can be derived by mimicking nature's solutions. This is not merely about copying but understanding the foundational principles that make natural systems efficient, resilient, and adaptable. While innovations like digital twins offer simulations of reality, BRT emphasizes a deeper alignment with nature's design principles\cite{tao_digital_2018}.
+BRT posits that the most efficient and optimized human-made systems can be derived by mimicking nature's solutions. This is not merely about copying but understanding the foundational principles that make natural systems efficient, resilient, and adaptable\cite{leibold_community_2017}. While innovations like digital twins offer simulations of reality, BRT emphasizes a deeper alignment with nature's design principles\cite{tao_digital_2018}.
 \subsection{Three Foundational Laws of BRT}
 \subsubsection*{I. Human systems can achieve optimization through mimicry of naturally occurring equivalents }
 \paragraph{Optimization through Mimicry}
@@ -427,15 +506,6 @@ For example, the internet can be likened to mycelial networks, and community str
 The Generative Fractal Game (GFG) concept within the Biomimetic Replicant Theory offers a profound mechanism to understand complex systems' dynamics, both natural and human-made. This idea is particularly aligned with non-cooperative game theory, where individual players make decisions to maximize their utility without considering the collective good. In this vein, Fujiwara and Greve\cite{fujiwara-greve_non-cooperative_2015} emphasize the non-cooperative nature of games, where players' strategies are defined by their individual goals and constraints, often leading to suboptimal outcomes for the system as a whole.
 
 GFGs echo this sentiment but introduce an added layer of complexity. The fractal nature of GFGs suggests that games are played at multiple scales, with each smaller game contributing to a larger, encompassing game. This mirrors the hierarchical structure observed in many natural systems, where small-scale interactions cumulatively influence large-scale dynamics. However, the generative aspect implies that as these games evolve, they spawn new games, reflecting the dynamic and ever-changing nature of systems\cite{noble_biological_2019}.
-
-John Nash's pioneering work on equilibria in non-cooperative games offers a foundational pillar for understanding GFGs\cite{arsenyan_modeling_2015}. Nash's equilibrium\cite{nash_equilibrium_1950} represents a state in which no player has an incentive to deviate from their chosen strategy, given the strategies chosen by other players. Within the GFG framework, Nash equilibria can be visualized as points of stability at various scales. However, due to the dynamic and generative nature of these games, these equilibria may shift or evolve, reflecting the inherent instability and incompleteness of systems in equilibrium. This notion of incompleteness aligns with Gödel's incompleteness theorems, which propose that within any consistent formal system, there are truths that cannot be proven or disproven\cite{zalta_gos_2020}. Similarly, BRT posits that true equilibrium in any system, including GFGs, may remain elusive and unprovable, ever-shifting, and evolving.
-
-By integrating Nash's equilibrium concept with the fractal, generative, and incompleteness aspects of GFGs, we can conceptualize a multi-scalar, dynamic system where equilibria at smaller scales contribute to, and are influenced by, equilibria at larger scales. This interplay between scales, the shifting nature of equilibria, and the ever-evolving game dynamics offers a rich tapestry to understand complex systems, whether they be ecological, economic, or organizational.
-
-The GFG offers a fresh perspective, viewing every entity as part of a larger whole, contributing and being shaped by the larger system. This fractal nature echoes in both natural and human-made systems, suggesting a universality in system design and behavior\cite{mandelbrot_fractal_1982}.
-
-\noindent % This ensures there's no indentation at the start of the line
-% Begin the first minipage for the diagram
 
 \begin{figure}[h]
 \centering
@@ -470,6 +540,17 @@ l & : \text{Composition (Game to Player B)}
 \caption[Commutative Diagram of Generative Fractal Games]{Commutative Diagram of Generative Fractal Games (GFGs) in Biomimetic Replicant Theory: A Multi-Scalar Representation of Dynamic Equilibria and Evolutionary Game Mechanics. The diagram illustrates the complex interplay between individual players (A and B), their collective entity (C), and the overarching game structure (G). Arrows represent various relationships such as strategies, equilibrium states, and compositional dynamics, thereby capturing the fractal, generative, and ever-evolving nature of GFGs.}
 \label{marker}
 \end{figure}
+
+John Nash's pioneering work on equilibria in non-cooperative games offers a foundational pillar for understanding GFGs\cite{arsenyan_modeling_2015}. Nash's equilibrium\cite{nash_equilibrium_1950} represents a state in which no player has an incentive to deviate from their chosen strategy, given the strategies chosen by other players. Within the GFG framework, Nash equilibria can be visualized as points of stability at various scales. However, due to the dynamic and generative nature of these games, these equilibria may shift or evolve, reflecting the inherent instability and incompleteness of systems in equilibrium. This notion of incompleteness aligns with Gödel's incompleteness theorems, which propose that within any consistent formal system, there are truths that cannot be proven or disproven\cite{zalta_gos_2020}. Similarly, BRT posits that true equilibrium in any system, including GFGs, may remain elusive and unprovable, ever-shifting, and evolving.
+
+By integrating Nash's equilibrium concept with the fractal, generative, and incompleteness aspects of GFGs, we can conceptualize a multi-scalar, dynamic system where equilibria at smaller scales contribute to, and are influenced by, equilibria at larger scales. This interplay between scales, the shifting nature of equilibria, and the ever-evolving game dynamics offers a rich tapestry to understand complex systems, whether they be ecological, economic, or organizational.
+
+The GFG offers a fresh perspective, viewing every entity as part of a larger whole, contributing and being shaped by the larger system. This fractal nature echoes in both natural and human-made systems, suggesting a universality in system design and behavior\cite{mandelbrot_fractal_1982}.
+
+\noindent % This ensures there's no indentation at the start of the line
+% Begin the first minipage for the diagram
+
+
 
 
 \subsubsection{BRT and the Universe as a Generative Fractal Game}
@@ -533,8 +614,10 @@ GFG principles can be integrated into organizational strategies, emphasizing ada
 
 \subsection{Introduction to the Influence Applicability Uptake Function}
 
-Before diving into the various applications and mathematical expressions of Biomimetic Replicant Theory (BRT), it's important to introduce a mathematical tool that aids in quantification: the Influence Applicability Uptake Function. This function serves as a metric for measuring the uptake, effectiveness, and spread of different types of influences within a given network. By integrating this function into the BRT framework, we add an empirical dimension that complements the theoretical and philosophical underpinnings of BRT. This allows for actionable insights into how well a system is optimized, how strategies within Generative Fractal Games (GFG) are adopted, and how Universal Mathematical Framework for Network Relationships (UMFNR) can be fine-tuned for better accuracy.
-\begin{figure}[h!]
+Before diving into the various applications and mathematical expressions of Biomimetic Replicant Theory (BRT), it's important to introduce a mathematical tool that aids in quantification: the Influence Applicability Uptake Function. This function serves as a metric for measuring the uptake, effectiveness, and spread of different types of influences within a given network.
+By integrating this function into the BRT framework, we add an empirical dimension that complements the theoretical and philosophical underpinnings of BRT. This allows for actionable insights into how well a system is optimized, how strategies within Generative Fractal Games (GFG) are adopted, and how Universal Mathematical Framework for Network Relationships (UMFNR) can be fine-tuned for better accuracy.
+
+\begin{figure}[H]
 \begin{minipage}{0.3\textwidth}
 \begin{tikzcd}[scale=1.5, every arrow/.append style={scale=1.5},row sep=2cm, column sep=2cm]
 W \arrow{d}{\phi} \arrow{r}{\alpha}
@@ -579,7 +662,7 @@ BRT, with its roots in nature, might inspire more ethical and sustainable practi
 
 By integrating Nash's equilibrium concept with the fractal, generative, and incompleteness aspects of GFGs, we can conceptualize a multi-scalar, dynamic system where equilibria at smaller scales contribute to, and are influenced by, equilibria at larger scales. This interplay between scales, the shifting nature of equilibria, and the ever-evolving game dynamics offers a rich tapestry to understand complex systems, whether they be ecological, economic, or organizational.
 
-\section{Data Analysis}
+\section{Data Analysis}\label{sec5}
 
 One of the key facets of BRT is the intricate relationship between individual entities and the overarching system within which they reside. The lineplot (Figure \ref{fig:gfg-lineplot}), which elucidates the relationship between resource availability and population growth, serves as an empirical manifestation of this concept\cite{whiteside_data_2019}. In the context of GFG, the resource level could be interpreted as an environmental constraint or a system condition that dictates the `strategies` available to individual entities. The lineplot reveals a non-linear relationship, indicative of system-level factors that influence individual-level dynamics and decision-making. This empirical evidence aligns with the theoretical postulates of BRT, emphasizing the importance of multi-scale analyses in understanding complex systems.
 
@@ -602,9 +685,9 @@ The interplay of cooperation and competition, as portrayed in the human study an
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{initial_players_impact.png}
-    \caption{Depiction of how the initial number of players impacts strategy and payoff dynamics in the "GFG Fractal" model. The y-axis represents the mean values for strategy and payoff, emphasizing their relationship with the x-axis which enumerates the initial number of players. As the initial player count increases, a discernible trend emerges, showcasing the intrinsic feedback loops and adaptive behaviors that are foundational in both the model and human cooperative dynamics.}
+    \caption[GFG Fractal Strategy and Payoff Factors]{Depiction of how the initial number of players impacts strategy and payoff dynamics in the "GFG Fractal" model. The y-axis represents the mean values for strategy and payoff, emphasizing their relationship with the x-axis which enumerates the initial number of players. As the initial player count increases, a discernible trend emerges, showcasing the intrinsic feedback loops and adaptive behaviors that are foundational in both the model and human cooperative dynamics.}
 
-    \label{fig:enter-label}
+    \label{fig:numberplayers}
 \end{figure}
 
 %\begin{figure}[H]
@@ -628,12 +711,12 @@ The interplay of cooperation and competition, as portrayed in the human study an
 
 \subsection{Variability and Fractal Complexity}
 
-BRT posits that systems exhibit fractal characteristics, allowing for complexity and variability at multiple scales. The boxplot (Figure \ref{fig:gfg-boxplot}) showcasing the distribution of turtle counts across various resource levels serves as an empirical corollary to this. The increasing variability in turtle counts at higher resource levels can be interpreted as a manifestation of fractal complexity. More resources engender more complex dynamics, reinforcing the fractal nature of systems postulated in BRT. \\
+BRT posits that systems exhibit fractal characteristics, allowing for complexity and variability at multiple scales. Showcasing the distribution of turtle counts across various resource levels, Figure \ref{fig:numberplayers} serves as an empirical corollary to this. The increasing variability in turtle counts at higher resource levels can be interpreted as a manifestation of fractal complexity. More resources engender more complex dynamics, reinforcing the fractal nature of systems postulated in BRT. \\
 
 
 
 
-\section*{Generative Constructor Theory Framework (GCTF)}
+\subsection{Generative Constructor Theory Framework (GCTF)}
 
 \subsection*{1. Defining the Base Task:}
 Start by defining the most basic task in the network. This task can be represented as $T_1$.
@@ -676,18 +759,19 @@ O(T_{i+1}) =
 
 \subsection*{Notes:}
 \begin{itemize}
-    \item The "other conditions" in the generative rule are the external conditions required for a task to be possible. For instance, even if a computer is connected to a local router, it might not access the internet if the ISP is down.
-    \item This framework can be visualized as a decision tree where each node represents a task and each branch represents an outcome (possible or impossible).
-    \item This generative constructor approach focuses on what is fundamentally possible or impossible in the network, building a hierarchy of tasks from the ground up.
+    \item[\sbt] The "other conditions" in the generative rule are the external conditions required for a task to be possible. For instance, even if a computer is connected to a local router, it might not access the internet if the ISP is down.
+    \item[\sbt] This framework can be visualized as a decision tree where each node represents a task and each branch represents an outcome (possible or impossible).
+    \item[\sbt] This generative constructor approach focuses on what is fundamentally possible or impossible in the network, building a hierarchy of tasks from the ground up.
 \end{itemize}
 
-\section{Results and Findings}
+
 \subsection{UMFNR and Influence Uptake}
 The Universal Mathematical Framework for Network Relationships (UMFNR) serves as a robust tool for understanding inter-network relationships. To add further depth to this tool, we introduce the Influence Applicability Uptake Function into the equation:
 \begin{equation}
 UMFNR = g(P(N_1, z_1^j), P(N_2, z_2^j), \ldots, P(N_n, z_n^j), P(N_{\text{ref}}, z_{\text{ref}}^j))
 \end{equation}
 Here, \( z_i^j \) adds a layer of complexity by measuring the uptake of different types of influences in each network. This makes UMFNR a more comprehensive tool, allowing for the capture of dynamic changes in influence uptake and providing a mechanism for understanding how these changes affect inter-network relationships.
+
 
 \subsection*{Defining the Networks:}
 \begin{align*}
@@ -701,6 +785,14 @@ P(N_i) : \text{Represents the desired properties of a network } N_i.
 \]
 
 \subsection*{Establishing the Relationships:}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\linewidth]{uptake_percentage_vs_impression_level.png}
+    \caption[Relationship between Node Impressions and Receptiveness]{\textit{Relationship between Node Impressions and Receptiveness.} This visualization illustrates the correlation between the number of impressions (or contacts) a node has within the network and its consequent receptiveness to new ideas or behaviors. Each data point represents a node in the network. A clear trend emerges, suggesting that nodes with higher impressions are generally more receptive. This insight underscores the importance of influential nodes in facilitating the diffusion of innovations across the organizational network.}
+
+    \label{fig:uptakepercentage}
+\end{figure}
 General relationship function:
 \[
 G(P(N_1), P(N_2), \dots, P(N_n)) = P(N_{\text{ref}})
@@ -720,12 +812,12 @@ G_{j}(\sigma(N_{1,j}, N_{\text{ref},j}), \sigma(N_{2,j}, N_{\text{ref},j}), \dot
 
 \subsection*{Key}
 \begin{itemize}
-    \item \(N_1, N_2, \dots, N_n\): Networks of interest.
-    \item \(N_{\text{ref}}\): Reference network.
-    \item \(P(N_i)\): Network properties function for the \(i\)-th network.
-    \item \(G\): General relationship function.
-    \item \(j\): Scale or level in fractal hierarchy.
-    \item \(\sigma\): Correlation measure between two networks.
+    \item[\sbt] \(N_1, N_2, \dots, N_n\): Networks of interest.
+    \item[\sbt] \(N_{\text{ref}}\): Reference network.
+    \item[\sbt] \(P(N_i)\): Network properties function for the \(i\)-th network.
+    \item[\sbt] \(G\): General relationship function.
+    \item[\sbt] \(j\): Scale or level in fractal hierarchy.
+    \item[\sbt] \(\sigma\): Correlation measure between two networks.
 \end{itemize}
 \subsection{Validating the Uptake Function with Real-World Data}
 
@@ -738,133 +830,135 @@ z_i^j = M_i^j + \emptyset \gamma^j (M{_i^{j}} , \beta_i) (M{_i^{j'}})^{t^}{jj'}
 For clarity, we've made educated associations between our datasets and elements of the function:
 
 \begin{enumerate}
-    \item \textbf{Receptiveness and Toxicity:} Consider receptiveness \( M_i^j \) as the 'openness' of a network \( j \) to a specific influence. We propose that this might correlate with the 'Toxicity' levels in our data. Analogously, as an environment becomes more toxic, it might be less receptive to changes, just as a network might be less open to influences when its toxicity rises.
+    \item[\sbt] \textbf{Receptiveness and Toxicity:} Consider receptiveness \( M_i^j \) as the 'openness' of a network \( j \) to a specific influence. We propose that this might correlate with the 'Toxicity' levels in our data. Analogously, as an environment becomes more toxic, it might be less receptive to changes, just as a network might be less open to influences when its toxicity rises.
 
-    \item \textbf{The Evolving Nature of Influence:} The variable \( t_{jj'} \) signifies the extent of influence one network \( j \) exerts on another \( j' \). This might shift as our game in the `Strategic\_Coop` dataset unfolds. The dynamics between players could evolve, altering their mutual influence.
+    \item[\sbt] \textbf{The Evolving Nature of Influence:} The variable \( t_{jj'} \) signifies the extent of influence one network \( j \) exerts on another \( j' \). This might shift as our game in the `Strategic\_Coop` dataset unfolds. The dynamics between players could evolve, altering their mutual influence.
 
-    \item \textbf{Strategy Adoption Frequency:} The uptake percentage \( \theta \) could resemble the frequency with which players in our `Strategic\_Coop` dataset adopt a specific strategy as the game progresses.
+    \item[\sbt] \textbf{Strategy Adoption Frequency:} The uptake percentage \( \theta \) could resemble the frequency with which players in our `Strategic\_Coop` dataset adopt a specific strategy as the game progresses.
 \end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{uptake_percentage_vs_impression_level.png}
+    \caption[Uptake Percentage as a Function of Impression Level]{\textit{Uptake Percentage as a Function of Impression Level.} This graph depicts the relationship between the level of impressions (or contacts) a node experiences within the network and the percentage uptake of new ideas or behaviors. The X-axis represents the different levels of impressions, while the Y-axis signifies the percentage of nodes that have adopted the innovation. A discernible trend indicates that as the number of impressions increases, there's a higher likelihood of uptake. This finding emphasizes the pivotal role of frequent interactions in enhancing the propagation of innovations within the organization.}
 
+    \label{fig:enter-label}
+\end{figure}
 Integrating these dataset values into our function, we aim to gauge its predictive power. If the function's output aligns closely with the actual data, it bolsters our confidence in the formula's accuracy. Conversely, discrepancies offer insights to refine our understanding.
 
 Bear in mind, this is a preliminary exploration. A comprehensive validation of our function necessitates extensive studies and diverse data sources. Yet, this analysis offers a compelling starting point.
 
 \subsection*{Step-by-Step Guide}
 \begin{enumerate}
-    \item \textbf{Choose Networks:} Start by defining your networks of interest: \(N_1, N_2, \dots, N_n\) and the reference network \(N_{\text{ref}}\).
-    \item \textbf{Determine Network Properties:} Use the \(P(N_i)\) function to extract relevant properties from each of your networks.
-    \item \textbf{Apply Relationship Function:} Use the \(G\) function to compare the properties of your networks of interest to the reference network. Adjust for fractal scales with \(G_j\) if necessary.
-    \item \textbf{Correlation Measures:} Apply \(\sigma\) to measure the correlation between each of your networks and the reference network.
-    \item \textbf{Interpret Results:} Analyze the outcome to understand the relationships and dynamics between your networks of interest and the reference network.
-\section{Conclusion}
-\subsection{Example: Mycorrhizal Networks and Human Systems}
-\subsection{BRT Optimization and Influence Uptake}
-\begin{figure}[H]
-\centering
-\begin{tikzcd}[row sep=5.5cm, column sep=6cm]
-\text{GFG Variables} 
-    \arrow[r, "F", "\begin{array}{c}
-                     \text{initial-players} \mapsto \text{Colonization} \\
-                     \text{max-resource} \mapsto \text{Nutrient Level} \\
-                     \text{initial-strategy} \mapsto \text{Toxicity}
-                     \end{array}" description]
-    \arrow[d, "G" swap, "\begin{array}{c}
-                        \text{mean(strategy)} = f(\text{initial-players, max-resource}) \\
-                        \text{mean(payoff)} = g(\text{initial-strategy, max-resource})
-                        \end{array}" description]
-    \arrow[rd, "N", dashed, "\text{Bootstrapping}" pos=0.2]
-& \text{Fungi Variables} 
-    \arrow[d, "H", "\begin{array}{c}
-                   \text{Colonization} = h(\text{Toxicity, Nutrient Level}) \\
-                   \text{Resource Allocation} = k(\text{Colonization, Nutrient Level})
-                   \end{array}" description]
-    \arrow[ld, "M", dashed, "\text{Transformation}" pos=0.2]
-\\
-\text{GFG Measures}
-    \arrow[r, "I", "\begin{array}{c}
-                    \text{mean(strategy)} \mapsto \text{Toxicity} \\
-                    \text{mean(payoff)} \mapsto \text{Resource Allocation}
-                    \end{array}" description] 
-& \text{Fungi Measures}
-\end{tikzcd}
-\begin{align*}
-\boxed{
-\begin{aligned}
-\textbf{Key:} \\
-F & : \text{Functor mapping GFG Variables to Fungi Variables} \\
-G & : \text{Mathematical expressions in GFG} \\
-H & : \text{Mathematical expressions in Fungi study} \\
-I & : \text{Functor mapping GFG Measures to Fungi Measures} \\
-N & : \text{Natural transformation representing Bootstrapping in GFG} \\
-M & : \text{Natural transformation representing Transformation in Fungi} \\
-\end{aligned}
-}
-\end{align*}
-\caption{Extended Commutative Diagram for Methodological Integration: A Category-Theoretic Approach.}
-\label{fig:extended_commutative_diagram}
-\end{figure}
+    \item[\sbt] \textbf{Choose Networks:} Start by defining your networks of interest: \(N_1, N_2, \dots, N_n\) and the reference network \(N_{\text{ref}}\).
+    \item[\sbt] \textbf{Determine Network Properties:} Use the \(P(N_i)\) function to extract relevant properties from each of your networks.
+    \item[\sbt] \textbf{Apply Relationship Function:} Use the \(G\) function to compare the properties of your networks of interest to the reference network. Adjust for fractal scales with \(G_j\) if necessary.
+    \item[\sbt] \textbf{Correlation Measures:} Apply \(\sigma\) to measure the correlation between each of your networks and the reference network.
+    \item[\sbt] \textbf{Interpret Results:} Analyze the outcome to understand the relationships and dynamics between your networks of interest and the reference network.
+\end{enumerate}
+\section{Results and Findings}\label{sec6}
+\subsection{Biomimetic Insights: Drawing Parallels Between Natural and Human Systems}
 
+Through the lens of the BRT, we embarked on an exploration of natural systems, primarily mycorrhizal networks, to discern patterns and strategies that could be juxtaposed onto human-made systems. Our findings suggest that these fungal networks, colloquially termed the \enquote{wood wide web,}\cite{wohlleben_hidden_2017} epitomize efficient resource distribution, resilience, and adaptability. This efficiency, as mirrored in the Generative Constructor Theory Framework (GCTF), is manifested in the task outcomes, from simple nutrient transfers to more intricate defense mechanisms.
 
-One of the primary goals of BRT is the optimization of human-made systems. To add an empirical layer to this optimization, we incorporate the Influence Applicability Uptake Function:
+\subsection{BRT Optimization: A Mathematical Approach}
+
+BRT's core tenet is the optimization of human systems, grounding its theoretical foundation in empirical data. Our introduction of the Influence Applicability Uptake Function serves as a testament to this. The formula:
+
 \begin{equation}
 BRT_{\text{Optimization}} = \alpha \times (BRT_{\text{original}} + z_i^j)
 \end{equation}
-Here, \( BRT_{\text{original}} \) is the original formula for BRT optimization, and \( z_i^j \) from the Uptake Function measures the total influence of type \( i \) in the network \( j \). By including this in the optimization equation, we can more accurately track the extent to which a system is being optimized, thereby making the BRT framework more actionable.
-\subsection*{1. Mycorrhizal Networks as a Natural System}
 
-Mycorrhizal fungi form intricate networks that facilitate the transfer of nutrients between different plant species. These networks, often termed the "wood wide web," play a crucial role in forest ecosystems, ensuring optimal nutrient distribution and promoting plant health\cite{whiteside_data_2019}.
+enables us to quantify system optimization. The Uptake Function, \( z_i^j \), provides us with a tangible metric to measure influence, thereby making the BRT more actionable in diverse organizational settings.
 
-\subsection*{Generative Constructor Theory Framework (GCTF) Application}
+\subsection{From Nature to Boardrooms: Applying the GCTF and UMFNR}
 
-\subsubsection*{1. Defining the Base Task}
+The GCTF's application to the mycorrhizal networks proved insightful. Starting with base tasks, such as phosphorus transfer, we built a hierarchical understanding of network tasks, emphasizing the vast capabilities of these fungal networks\cite{whiteside_data_2019}. Similarly, the Universal Mathematical Framework for Network Relationships (UMFNR) offered a structured approach to compare seemingly disparate networks: a natural mycorrhizal one and a human-made supply chain. Our findings highlighted that although these networks operate in different realms, their underlying principles of efficiency, resilience, and adaptability are strikingly similar.
 
-Let's start simple. The base task \( T_1 \) might be: "Can a particular mycorrhizal fungus transfer phosphorus to a specific plant species?"
+Furthermore, through correlation measures, we were able to quantitatively juxtapose the properties of these networks. Such measures, like \( \sigma \), not only highlighted similarities but also provided actionable insights for optimizing human-made systems.
 
-\subsubsection*{2. Task Outcome}
+\subsection{Interpretation: The Essence of BRT}
 
-From observational data or experiments, we determine that the outcome \( O(T_1) \) is "Possible" (P).
-
-\subsubsection*{3. Generative Task Construction}
-
-For the subsequent task \( T_2 \): "Can this mycorrhizal fungus facilitate the transfer of phosphorus between two different plant species?"
-Given that \( O(T_1) = P \) and if there's observational data supporting interspecies nutrient transfer, \( O(T_2) \) is also "Possible" (P).
-
-\subsubsection*{4. Hierarchical Task Building}
-
-Expanding upon the basic tasks, we can explore more complex interactions and dependencies within the network, like nitrogen transfer, defense against pathogens, and resistance against environmental stressors.
-
-\subsection*{Universal Mathematical Framework for Network Relationships (UMFNR) Application}
-
-\subsubsection*{Defining the Networks}
-
-Consider two networks: \\
-\( N_1 \): Mycorrhizal network in a temperate forest. \\
-\( N_2 \): Supply chain network of a multinational company. \\
-\( N_{\text{ref}} \): A reference idealized network.
+The juxtaposition of a natural system with a human-made one provided profound insights. By discerning strong correlations between nutrient transfer efficiency in the mycorrhizal network and distribution efficiency in supply chains, we could elucidate strategies for the latter by drawing inspiration from the former. This not only reiterates the primary objective of the BRT but also offers a concrete pathway for its application in real-world scenarios. The essence of BRT, as showcased by this research, lies in its ability to bridge the gap between nature's wisdom and human ingenuity, paving the way for sustainable and optimized organizational practices.
 
 
-\subsubsection*{Defining the Network Properties}
+\section{Conclusion}
 
-For \( N_1 \), properties might include nutrient transfer rates, species diversity, and network resilience.
-For \( N_2 \), properties might include supply-demand balance, distribution efficiency, and adaptability to market changes.
+In the multifaceted realm of organizational dynamics, the Biomimetic Resource Theory (BRT) emerges as a crucial tool to decode the interplay between collaboration, competition, and conservation. This research has unveiled the intricate dance of knowledge sharing in complex organizational settings, drawing rich parallels with natural systems. Just as ecosystems strike a balance to ensure survival and growth, organizations too must calibrate their knowledge management strategies to ensure sustainable growth and adaptability.
 
-\subsubsection*{Establishing the Relationships}
+Our foray into the BRT elucidated several salient points. Foremost, the shift from function to intent in organizational knowledge management is not merely a paradigmatic change but a requisite for future success. By emphasizing an organization's capabilities and fostering a bidirectional relationship between insights and data discovery, we have highlighted the importance of adaptability in the face of evolving challenges.
 
-Using our mathematical framework, we aim to establish relationships between the properties of \( N_1 \) and \( N_2 \). For instance, how does the nutrient transfer efficiency in \( N_1 \) correlate with distribution efficiency in \( N_2 \)?
+Furthermore, the nuances of knowledge flow within the contexts of collaboration, competition, and shifting equilibriums offer a roadmap for refining knowledge management practices. The lessons from nature, particularly the resilience and adaptability of ecosystems, serve as a beacon for organizations. In the same vein as ecosystems achieving equilibrium, organizations too must navigate the intertwined dimensions of collaboration, competition, and conservation.
 
-\subsubsection*{Correlation Measures}
+In essence, the BRT provides a holistic lens through which we can view the future of organizational knowledge management. The parallels between natural systems and organizational ecosystems underscore the universality of the challenges faced and the solutions proposed.
 
-By employing correlation measures like \( \sigma \), we can quantify the degree of similarity between the properties of \( N_1 \) and \( N_2 \) relative to \( N_{\text{ref}} \).
-
-\subsection*{Interpretation}
-
-By comparing a natural system (mycorrhizal network) with a human-made system (supply chain network), we can gain insights into optimizing the human system by emulating strategies from its natural counterpart. If the nutrient transfer efficiency in the mycorrhizal network correlates strongly with distribution efficiency in the supply chain, strategies that improve the former can be adapted to enhance the latter.
-
-This example showcases how the GCTF and UMFNR can be applied to real-world systems, driving home the essence of BRT–that human systems can be optimized by drawing inspiration from nature.
+In closing, the Biomimetic Resource Theory (BRT) is more than a theoretical framework; it is a clarion call for organizations to introspect, adapt, and evolve. By understanding and embracing the dynamics of knowledge flow, we not only ensure the sustainable growth of organizations but also lay the foundation for a future where adaptability and sustainability are at the forefront of organizational success.
 
 
-\end{enumerate}
+\section{Recommendations}\label{sec9}
+
+\subsection{Practical Implementations}
+
+\subsubsection{Establish a BRT Assessment Team}
+Organizations would be well-advised to inaugurate a multidisciplinary team equipped with expertise in biology, systems thinking, and organizational behavior. This specialized unit could be tasked with:
+
+\begin{itemize}
+    \item[\sbt] Conducting an exhaustive organizational audit to pinpoint areas where BRT principles stand to offer maximal impact.
+    \item[\sbt] Formulating a phased implementation roadmap, underpinned by metrics and KPIs.
+\end{itemize}
+
+\subsubsection{Knowledge Management Interventions}
+Capitalizing on the BRT framework, organizations could introduce knowledge-sharing infrastructures that ingeniously balance the forces of collaboration and competition. Potential strategies include:
+
+\begin{itemize}
+    \item[\sbt] Initiating a dynamic \textit{knowledge marketplace} where employees can broker information and resources.
+    \item[\sbt] Incorporating gamified elements to spur competitive knowledge dissemination.
+\end{itemize}
+
+\subsubsection{Resource Allocation Models}
+Considering BRT's emphasis on conservation, organizations can utilize it to engineer more sustainable resource allocation paradigms. Here, algorithms borrowed from ecology could be employed to judiciously manage finite resources.
+
+\subsection{Potential Challenges}
+
+\subsubsection{Organizational Resistance}
+The infusion of a novel theoretical apparatus such as BRT is liable to meet with resistance, particularly from employees entrenched in existing operational norms.
+
+\begin{itemize}
+    \item[\sbt] \textbf{Mitigation Strategy}: Host targeted workshops and training modules to acclimate the workforce to the mechanics and advantages of BRT.
+\end{itemize}
+
+\subsubsection{Complexity and Scalability}
+The activation of BRT within an organization may necessitate a complex systems overhaul, which could present scalability concerns.
+
+\begin{itemize}
+    \item[\sbt] \textbf{Mitigation Strategy}: Initiate with proof-of-concept pilot programs in select departments prior to organization-wide deployment.
+\end{itemize}
+
+\section{Future Work}\label{sec10}
+
+\subsection{Extensions of BRT}
+
+\subsubsection{Application in Non-corporate Settings}
+Current investigations focus predominantly on corporate entities, leaving a void in our understanding of BRT's applicability in alternative settings such as non-profits, educational institutions, and governmental structures. 
+
+\subsubsection{Ethical Implications}
+Building upon the biomimetic foundations of BRT, forthcoming research must consider the ethical ramifications of transposing principles from natural ecosystems onto human organizational dynamics.
+
+\subsection{Interdisciplinary Collaborations}
+
+\subsubsection{Ecologists and Mathematicians}
+An unexplored yet promising avenue for BRT's advancement would involve forging collaborations with ecologists to deepen our comprehension of natural resource management. Concurrently, mathematicians could be engaged to formalize these biological insights into computationally viable algorithms or models.
+
+\subsubsection{Organizational Experts and Behavioral Scientists}
+Engaging with specialists in the fields of organizational behavior and psychology could furnish nuanced perspectives on how BRT principles can be adapted to diverse organizational cultures and structural paradigms.
+
+By amalgamating interdisciplinary know-how, BRT could morph into a more resilient and versatile framework, adequately equipped to tackle the diverse challenges pervading contemporary knowledge management paradigms.
+
+
+
+
+
 \bibliography{sn-bibliography}
+\clearpage
 
 
 \appendix
@@ -877,9 +971,9 @@ The Idea Spread Model simulates the propagation of ideas within an organization.
 
 \subsubsection{Parameters}
 \begin{itemize}
-    \item \textbf{Influence Factor}: A measure of how influential a department or individual is in spreading an idea.
-    \item \textbf{Receptivity Factor}: A measure of how receptive a department or individual is to new ideas.
-    \item \textbf{External Market Influence}: Represents external factors or influences from the market that can impact the spread of an idea.
+    \item[\sbt] \textbf{Influence Factor}: A measure of how influential a department or individual is in spreading an idea.
+    \item[\sbt] \textbf{Receptivity Factor}: A measure of how receptive a department or individual is to new ideas.
+    \item[\sbt] \textbf{External Market Influence}: Represents external factors or influences from the market that can impact the spread of an idea.
 \end{itemize}
 
 \subsubsection{Mathematical Expressions}
@@ -903,30 +997,15 @@ U(t) = \frac{K}{1 + e^{-r(t-t_0)}}
 
 Where:
 \begin{itemize}
-    \item \( U(t) \): Uptake at time \( t \).
-    \item \( K \): Maximum uptake.
-    \item \( r \): Rate of adoption.
-    \item \( t_0 \): Inflection point, where the rate of adoption is highest.
+    \item[\sbt] \( U(t) \): Uptake at time \( t \).
+    \item[\sbt] \( K \): Maximum uptake.
+    \item[\sbt] \( r \): Rate of adoption.
+    \item[\sbt] \( t_0 \): Inflection point, where the rate of adoption is highest.
 \end{itemize}
 
 This sigmoidal function represents the cumulative uptake over time. Initially, the uptake is slow, but as influencing factors become more prevalent, the uptake rate increases until it reaches a saturation point, after which the rate slows down again. 
 
 The function provides a mathematical foundation for the dynamics observed in the Idea Spread Model, offering insights into how various factors can impact the spread of ideas within an organization.
-
-\subsection{Rollie Pollie Habitat Preference Model}
-
-\subsubsection{Overview}
-The Rollie Pollie Habitat Preference Model simulates the behavior of rollie pollies as they navigate different environmental conditions. It aims to understand their habitat preferences, which can be mapped to organizational environments for insights into employee preferences.
-
-\subsubsection{Parameters}
-\begin{itemize}
-    \item \textbf{Moisture Level}: Represents the moisture content in a given habitat.
-    \item \textbf{Light Level}: Represents the amount of light in a given habitat.
-    \item \textbf{Terrain Type}: Represents the type of terrain (e.g., rocky, sandy) in a given habitat.
-\end{itemize}
-
-\subsubsection{NetLogo Implementation}
-The model is implemented in NetLogo. Rollie pollies are represented as agents that move between different chambers with varying conditions. The movement patterns and chamber preferences provide insights into their habitat preferences.
 
 \subsection{Bees and Managers Model}
 
@@ -935,9 +1014,9 @@ This model, inspired by the behavior of bees, simulates the decision-making proc
 
 \subsubsection{Parameters}
 \begin{itemize}
-    \item \textbf{Information Availability}: Represents the amount of information available to managers.
-    \item \textbf{External Influences}: Represents external factors that can influence a manager's decision.
-    \item \textbf{Internal Communication}: Represents the level of communication between managers within the organization.
+    \item[\sbt] \textbf{Information Availability}: Represents the amount of information available to managers.
+    \item[\sbt] \textbf{External Influences}: Represents external factors that can influence a manager's decision.
+    \item[\sbt] \textbf{Internal Communication}: Represents the level of communication between managers within the organization.
 \end{itemize}
 
 \subsubsection{Mathematical Expressions}
